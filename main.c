@@ -65,26 +65,30 @@ int main()
 
    //Declaration de variables;
 
+   
+      //Animation Background
+   //Background blit
+
    //Initialisation video
    SDL_Init(SDL_INIT_VIDEO);
 
    if (SDL_Init(SDL_INIT_VIDEO) != 0)
    {
-      printf("Unuable to initialize SDL: %s \n", SDL_GetError());
+      printf("Unable to initialize SDL: %s \n", SDL_GetError());
       return 1;
    }
    //Initialisation video
 
    //Load Images
    screen = SDL_SetVideoMode(Res_Width, Res_Length, 32, SDL_HWSURFACE |SDL_DOUBLEBUF | SDL_RESIZABLE);
-   Bg_Image_1 = IMG_Load("first.png");
-   Bg_Image_2 = IMG_Load("second.png");
-   Bg_Image_3 = IMG_Load("third.png");
-   Continue_Button = IMG_Load("Continue0.png");
-   New_Button = IMG_Load("New.png");
-   Load_Button = IMG_Load("Load.png");
-   Options_Button = IMG_Load("Options.png");
-   Quit_Button = IMG_Load("Quit.png");
+   Bg_Image_1 = IMG_Load("Assets/Images/Backgrounds/first.png");
+   Bg_Image_2 = IMG_Load("Assets/Images/Backgrounds/second.png");
+   Bg_Image_3 = IMG_Load("Assets/Images/Backgrounds/third.png");
+   Continue_Button = IMG_Load("Assets/Images/UI/Continue0.png");
+   New_Button = IMG_Load("Assets/Images/UI/New.png");
+   Load_Button = IMG_Load("Assets/Images/UI/Load.png");
+   Options_Button = IMG_Load("Assets/Images/UI/Options.png");
+   Quit_Button = IMG_Load("Assets/Images/UI/Quit.png");
    //Load Images
 
    //Affichage Bouttons
@@ -98,15 +102,14 @@ int main()
    {
       printf("%s", Mix_GetError());
    }
-   music = Mix_LoadMUS("Music.mp3");
-   sound = Mix_LoadWAV("clickk.wav");
+   music = Mix_LoadMUS("Assets/Audio/Music/Music.mp3");
+   sound = Mix_LoadWAV("Assets/Audio/SFX/clickk.wav");
    Mix_PlayMusic(music, -1);
    //Initialisation son
 
    //Main Loop
    while (continuer)
    {
-      //Animation Background
       SDL_BlitSurface(Bg_Image_1, NULL, screen, &Pos_Bg);
       //SDL_Flip(screen);
       SDL_BlitSurface(Continue_Button, NULL, screen, &continue_start);
@@ -146,7 +149,6 @@ int main()
       SDL_BlitSurface(Quit_Button, NULL, screen, &quit_start);
       SDL_Flip(screen);
       //SDL_Delay(1000);
-      //Animation Background
 
       while (SDL_PollEvent(&event))
       {
