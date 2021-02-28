@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
+#include "load_images.h"
 int main()
 {
    //Declaration de variables;
@@ -27,15 +28,15 @@ int main()
    //Buttons
 
    //Button Coordinates
-   SDL_Rect continue_start,continue_end;
-   SDL_Rect new_start,new_end;
-   SDL_Rect load_start,load_end;
-   SDL_Rect options_start,options_end;
-   SDL_Rect quit_start,quit_end;
+   SDL_Rect continue_start, continue_end;
+   SDL_Rect new_start, new_end;
+   SDL_Rect load_start, load_end;
+   SDL_Rect options_start, options_end;
+   SDL_Rect quit_start, quit_end;
    continue_start.x = 194, continue_end.x = 461;
    continue_start.y = 155, continue_end.y = 274;
-   new_start.x = 194, new_end.x=534;
-   new_start.y = 305, new_end.y=424;
+   new_start.x = 194, new_end.x = 534;
+   new_start.y = 305, new_end.y = 424;
    load_start.x = 194, load_end.x = 526;
    load_start.y = 455, load_end.y = 574;
    options_start.x = 194, options_end.x = 426;
@@ -65,8 +66,7 @@ int main()
 
    //Declaration de variables;
 
-   
-      //Animation Background
+   //Animation Background
    //Background blit
 
    //Initialisation video
@@ -80,20 +80,12 @@ int main()
    //Initialisation video
 
    //Load Images
-   screen = SDL_SetVideoMode(Res_Width, Res_Length, 32, SDL_HWSURFACE |SDL_DOUBLEBUF | SDL_RESIZABLE);
-   Bg_Image_1 = IMG_Load("Assets/Images/Backgrounds/first.png");
-   Bg_Image_2 = IMG_Load("Assets/Images/Backgrounds/second.png");
-   Bg_Image_3 = IMG_Load("Assets/Images/Backgrounds/third.png");
-   Continue_Button = IMG_Load("Assets/Images/UI/Continue0.png");
-   New_Button = IMG_Load("Assets/Images/UI/New.png");
-   Load_Button = IMG_Load("Assets/Images/UI/Load.png");
-   Options_Button = IMG_Load("Assets/Images/UI/Options.png");
-   Quit_Button = IMG_Load("Assets/Images/UI/Quit.png");
+   load_images(Res_Width, Res_Length, screen, Bg_Image_1, Bg_Image_2, Bg_Image_3, Continue_Button, New_Button, Load_Button, Options_Button, Quit_Button);
    //Load Images
 
    //Affichage Bouttons
-     SDL_BlitSurface(Continue_Button, NULL, screen, &continue_start); 
-     SDL_Flip(screen);
+   SDL_BlitSurface(Continue_Button, NULL, screen, &continue_start);
+   SDL_Flip(screen);
 
    //Affichage Boutons
 
